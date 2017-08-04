@@ -1,0 +1,93 @@
+git --version    -> Te muestra la versión de Git instalada en tu Mac actualmente
+git config       -> le vas a enviar a git opciones o parámetros y ese parámetro para este caso sería:
+git config --global user.name "@EL4400J"    -> Para configurar el usuario en Git
+git config --list     -> Para revisar que si se configuro Git con este nombre de usuario:
+
+git config --global user.email "pepito@gmail.com"   -> Para agregar mi E-Mail de usuario:
+
+git config --global user.email  ->  muestra el correo asociado
+git help explica como usar un comando, por ejemplo:
+         git help add
+         git help commit
+         git help push
+
+********************************
+
+git commit -m "@DESCRIPCION" --amend   -> sustituye el ultimo commit creado
+
+git log   -> visualiza el historial de commit realizados
+git log --oneline    -> muestra el historial de otra forma mas compacta
+git log --decorate    -> muestra en que punto esta cituado en head
+git log --stat        (Explica el numero de lineas que se cambiaron brevemente)
+git log -p            (Explica el numero de lineas que se cambiaron y te muestra que se cambio en el contenido)
+git shortlog        (Indica que commits a realizado un usuario, mostrando el usuario y el titulo de sus commits)
+git log --graph --oneline --decorate 
+git log pretty=format:"%cn hizo un commit %h el dia %cd" (Muestar mensajes perzonalizados de los commits)
+git log -3            (Limitamos el numero de commits)
+git log --after="2016-1-2"
+git log --after="today"
+git log --after="2016-1-2" --before="today" (Commits para localizar por fechas)
+git log --author="Santiago Iván" (commits por autor que cumplan con las letras)
+git log --grep="FOOTER" (Busca los commits que cumplan tal cual esta escrito entre las comillas)
+git log --grep="FOOTER" -i (Busca los commits que cumplan sin importar mayusculas o minusculas)
+git log -- index.html (Busca los commits en un archivo en especifico)
+git log -S"Por contenido" (Buscar los commits con el contenido dentro del archivo)
+
+
+
+git clone DIRECCION HTTPS del proyecto en Github
+
+********************************
+PARA CONECTARSE A REPO REMOTOS
+********************************
+Primero se crea una llave ssh en github
+$ ssh-keygen -t rsa -b 4096 -C "poner aquí correo electrónico"
+
+(EL ARCHIVO id_rsa.pub SE ENCUENTRA EN LA CARPETA RAIZ DE TERMINAL, DENTRO DE LA CARPETA .ssh)
+
+Te colocas en la carpeta de inicio en la consola e ingresas a la carpeta '.ssh' (ls -la) (.pub)
+$ ls -la    -> muestra los archivos que hay en la carpeta 
+$cat 'id_rsa.pub'  -> examina un archivo, para ver la llave ssh se utiliza este comando
+
+$ mkdir   -> crea una carpeta
+$touch    -> crea un archivo (archivo.txt)
+
+git init  -> inicializamos la carpeta
+git remote  -> comando que se utiliza para conectarse con repositorios remotos
+git remote add origin git@github.com:GerusNazgul/PrimerRepo.git
+
+git push origin master   -> comando para empujar al repositorio
+git fetch origin     -> descarga los archivos pero a los archivos ocultos
+git merge origin/master    -> sincroniza origin-master a master
+
+En dado caso de que no se actualicen los archivos con los que hay en el repositorio 
+y ya se han creado archivos en local, al momento de querer subir los archivos marcara error
+lo que se tiene que hacer es descargar los archivos
+
+git status
+
+git checkout master     -> nos regrea al ultimo commint
+git clone URL DEL PROYECTO EN GITHUB    descarga un proyecto con su commits
+
+********** REPOSITORIOS DE TERCEROS **********
+git remote add origin (direccion de repositorio clon)
+git remote add upstream (direccion de repositorio original del tercero)
+
+git fetch upstream
+git merge origin/upstream
+git fetch origin
+git merge origin/master
+//muchos git commit
+git fetch upstream
+git merge origin/upstream
+
+********** PARA IGNORAR ARCHIVOS **********
+se crea un archivo dentro del repositorio local con:
+$ touch .gitignore
+
+despues de edita dentro de la terminal con bin:
+$ vim .gitignore
+
+para iniciar la edicion solo se aprieta la tecla 'o', se coloca el nombre del archivo con extencion.
+
+se aprienta ESC y se guarda el archivo con :x
