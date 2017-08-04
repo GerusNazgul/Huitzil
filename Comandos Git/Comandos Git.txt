@@ -69,6 +69,14 @@ git status
 git checkout master     -> nos regrea al ultimo commint
 git clone URL DEL PROYECTO EN GITHUB    descarga un proyecto con su commits
 
+*******************EN EQUIPO***************************
+Se crea una carpeta vacia donde se colocara el repocitorio en Equipo, se coloca la terminal en esa carpeta e iniciamos Git
+
+$git init
+$git remote add origin git@github.com:GerusNazgul/Huitzil.git
+$git fetch origin
+$git merge origin/master
+
 ********** REPOSITORIOS DE TERCEROS **********
 git remote add origin (direccion de repositorio clon)
 git remote add upstream (direccion de repositorio original del tercero)
